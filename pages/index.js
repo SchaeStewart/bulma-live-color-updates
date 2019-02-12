@@ -1,6 +1,4 @@
-import InitalVariables from "../bulma-style-components/utilities/inital-variables";
-import BulmaFunctions from "../bulma-style-components/utilities/bulma-functions";
-
+import Bulma from "../Bulma";
 export default () => (
   <div className="hello">
     <button className="is-primary">Hello World</button>
@@ -39,7 +37,6 @@ export default () => (
         // Copied from: https://bulma.io/documentation/customize/with-webpack/
       `}
     </style>
-    <InitalVariables />
-    <BulmaFunctions />
+    <Bulma />
   </div>
 );
