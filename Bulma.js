@@ -990,6 +990,56 @@ const Bulma = () => (
       @mixin control-large {
         font-size: $size-large;
       }
+
+      // ** Box ** //
+      $box-color: $text !default;
+      $box-background-color: $white !default;
+      $box-radius: $radius-large !default;
+      $box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1) !default;
+      $box-padding: 1.25rem !default;
+
+      $box-link-hover-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px $link !default;
+      $box-link-active-shadow: inset 0 1px 2px rgba($black, 0.2),
+        0 0 0 1px $link !default;
+
+      .box {
+        @extend %block;
+        background-color: $box-background-color;
+        border-radius: $box-radius;
+        box-shadow: $box-shadow;
+        color: $box-color;
+        display: block;
+        padding: $box-padding;
+      }
+
+      a.box {
+        &:hover,
+        &:focus {
+          box-shadow: $box-link-hover-shadow;
+        }
+        &:active {
+          box-shadow: $box-link-active-shadow;
+        }
+      }
+
+      // ** Section ** //
+      $section-padding: 3rem 1.5rem !default;
+      $section-padding-medium: 9rem 1.5rem !default;
+      $section-padding-large: 18rem 1.5rem !default;
+
+      .section {
+        padding: $section-padding;
+        // Responsiveness
+        + desktop {
+          // Sizes
+          &.is-medium {
+            padding: $section-padding-medium;
+          }
+          &.is-large {
+            padding: $section-padding-large;
+          }
+        }
+      }
     `}
   </style>
 );
