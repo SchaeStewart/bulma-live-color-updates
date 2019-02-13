@@ -3,16 +3,14 @@ export default class extends React.Component {
   constructor() {
     super();
     this.state = {
-      colors: {
-        black: "hsl(0, 0%, 4%) !default"
-      }
+      colors: {}
     };
   }
 
   render() {
     const { colors } = this.state;
-    // const {black} = this.state.color
-    const black = colors.black ? colors.black : "hsl(0, 0%, 4%) !default";
+    // const { black } = this.state.color;
+    // const black = colors.black ? colors.black : "hsl(0, 0%, 4%) !default";
     return (
       <section className="section">
         <div className="container">
@@ -32,29 +30,9 @@ export default class extends React.Component {
           />
           <style jsx global>
             {`
-              // Set your brand colors
-              // $purple: #8a4d76;
-              // $pink: #fa7c91;
-              // $brown: #757763;
-              // $beige-light: #d0d1cd;
-              // $beige-lighter: #eff0eb;
-
-              // Update Bulma's Global variables
-              // $family-sans-serif: "Nunito", sans-serif;
-              // $grey-dark: $brown;
-              // $grey-light: $beige-light;
-              // $primary: $purple;
-              // $link: $pink;
-              // $widescreen-enabled: false;
-              // $fullhd-enabled: false;
-            `}
-          </style>
-
-          <style jsx global>
-            {`
               // ** Initial Variables **//
               // Colors
-              //$black: hsl(0, 0%, 4%) !default;
+              $black: hsl(0, 0%, 4%) !default;
               $black-bis: hsl(0, 0%, 7%) !default;
               $black-ter: hsl(0, 0%, 14%) !default;
               $grey-darker: hsl(0, 0%, 21%) !default;
@@ -113,6 +91,11 @@ export default class extends React.Component {
               $speed: 86ms !default;
               // Flags
               $variable-columns: true !default;
+
+              // TODO: update this shit
+              h1 {
+                color: $turquoise;
+              }
 
               // ** Functions **//
               @function mergeColorMaps($bulma-colors, $custom-colors) {
