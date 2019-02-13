@@ -62,6 +62,7 @@ const Bulma = () => (
       $speed: 86ms !default;
       // Flags
       $variable-columns: true !default;
+
       // ** Functions **//
       @function mergeColorMaps($bulma-colors, $custom-colors) {
         // we return at least bulma hardcoded colors
@@ -284,247 +285,6 @@ const Bulma = () => (
         $custom-shades
       ) !default;
       $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7 !default;
-
-      // ** Minireset ** //
-      /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
-      // Blocks
-      html,
-      body,
-      p,
-      ol,
-      ul,
-      li,
-      dl,
-      dt,
-      dd,
-      blockquote,
-      figure,
-      fieldset,
-      legend,
-      textarea,
-      pre,
-      iframe,
-      hr,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        margin: 0;
-        padding: 0;
-      }
-      // Headings
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-size: 100%;
-        font-weight: normal;
-      }
-      // List
-      ul {
-        list-style: none;
-      }
-      // Form
-      button,
-      input,
-      select,
-      textarea {
-        margin: 0;
-      }
-      // Box sizing
-      html {
-        box-sizing: border-box;
-      }
-
-      * {
-        &,
-        &::before,
-        &::after {
-          box-sizing: inherit;
-        }
-      }
-      // Media
-      img,
-      embed,
-      iframe,
-      object,
-      video {
-        height: auto;
-        max-width: 100%;
-      }
-      audio {
-        max-width: 100%;
-      }
-      // Iframe
-      iframe {
-        border: 0;
-      }
-      // Table
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-
-      td,
-      th {
-        padding: 0;
-        text-align: left;
-      }
-      // ** Generic ** //
-      $body-background-color: $white !default;
-      $body-size: 16px !default;
-      $body-rendering: optimizeLegibility !default;
-      $body-family: $family-primary !default;
-      $body-color: $text !default;
-      $body-weight: $weight-normal !default;
-      $body-line-height: 1.5 !default;
-
-      $code-family: $family-code !default;
-      $code-padding: 0.25em 0.5em 0.25em !default;
-      $code-weight: normal !default;
-      $code-size: 0.875em !default;
-
-      $hr-background-color: $background !default;
-      $hr-height: 2px !default;
-      $hr-margin: 1.5rem 0 !default;
-
-      $strong-color: $text-strong !default;
-      $strong-weight: $weight-bold !default;
-
-      html {
-        background-color: $body-background-color;
-        font-size: $body-size;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-font-smoothing: antialiased;
-        min-width: 300px;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        text-rendering: $body-rendering;
-        text-size-adjust: 100%;
-      }
-
-      article,
-      aside,
-      figure,
-      footer,
-      header,
-      hgroup,
-      section {
-        display: block;
-      }
-
-      body,
-      button,
-      input,
-      select,
-      textarea {
-        font-family: $body-family;
-      }
-
-      code,
-      pre {
-        -moz-osx-font-smoothing: auto;
-        -webkit-font-smoothing: auto;
-        font-family: $code-family;
-      }
-
-      body {
-        color: $body-color;
-        font-size: 1rem;
-        font-weight: $body-weight;
-        line-height: $body-line-height;
-      }
-
-      // Inline
-
-      a {
-        color: $link;
-        cursor: pointer;
-        text-decoration: none;
-        strong {
-          color: currentColor;
-        }
-        &:hover {
-          color: $link-hover;
-        }
-      }
-
-      code {
-        background-color: $code-background;
-        color: $code;
-        font-size: $code-size;
-        font-weight: $code-weight;
-        padding: $code-padding;
-      }
-
-      hr {
-        background-color: $hr-background-color;
-        border: none;
-        display: block;
-        height: $hr-height;
-        margin: $hr-margin;
-      }
-
-      img {
-        height: auto;
-        max-width: 100%;
-      }
-
-      input[type="checkbox"],
-      input[type="radio"] {
-        vertical-align: baseline;
-      }
-
-      small {
-        font-size: 0.875em;
-      }
-
-      span {
-        font-style: inherit;
-        font-weight: inherit;
-      }
-
-      strong {
-        color: $strong-color;
-        font-weight: $strong-weight;
-      }
-
-      // Block
-
-      fieldset {
-        border: none;
-      }
-
-      pre {
-        + overflow-touch {
-          background-color: $pre-background;
-          color: $pre;
-          font-size: 0.875em;
-          overflow-x: auto;
-          padding: 1.25rem 1.5rem;
-          white-space: pre;
-          word-wrap: normal;
-        }
-        code {
-          background-color: transparent;
-          color: currentColor;
-          font-size: 1em;
-          padding: 0;
-        }
-      }
-
-      table td,
-      th {
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: $text-strong;
-      }
 
       // ** Animations ** //
       @keyframes spinAround {
@@ -759,7 +519,477 @@ const Bulma = () => (
         @include block;
       }
 
-      // TODO: pick up at delete
+      @mixin delete {
+        @extend %unselectable;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background-color: rgba($black, 0.2);
+        border: none;
+        border-radius: $radius-rounded;
+        cursor: pointer;
+        pointer-events: auto;
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        font-size: 0;
+        height: 20px;
+        max-height: 20px;
+        max-width: 20px;
+        min-height: 20px;
+        min-width: 20px;
+        outline: none;
+        position: relative;
+        vertical-align: top;
+        width: 20px;
+        &::before,
+        &::after {
+          background-color: $white;
+          content: "";
+          display: block;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%) rotate(45deg);
+          transform-origin: center center;
+        }
+        &::before {
+          height: 2px;
+          width: 50%;
+        }
+        &::after {
+          height: 50%;
+          width: 2px;
+        }
+        &:hover,
+        &:focus {
+          background-color: rgba($black, 0.3);
+        }
+        &:active {
+          background-color: rgba($black, 0.4);
+        }
+        // Sizes
+        &.is-small {
+          height: 16px;
+          max-height: 16px;
+          max-width: 16px;
+          min-height: 16px;
+          min-width: 16px;
+          width: 16px;
+        }
+        &.is-medium {
+          height: 24px;
+          max-height: 24px;
+          max-width: 24px;
+          min-height: 24px;
+          min-width: 24px;
+          width: 24px;
+        }
+        &.is-large {
+          height: 32px;
+          max-height: 32px;
+          max-width: 32px;
+          min-height: 32px;
+          min-width: 32px;
+          width: 32px;
+        }
+      }
+
+      @mixin delete {
+        @include delete;
+      }
+
+      @mixin loader {
+        animation: spinAround 500ms infinite linear;
+        border: 2px solid $grey-lighter;
+        border-radius: $radius-rounded;
+        border-right-color: transparent;
+        border-top-color: transparent;
+        content: "";
+        display: block;
+        height: 1em;
+        position: relative;
+        width: 1em;
+      }
+
+      @mixin loader {
+        @include loader;
+      }
+
+      @mixin overlay($offset: 0) {
+        bottom: $offset;
+        left: $offset;
+        position: absolute;
+        right: $offset;
+        top: $offset;
+      }
+
+      %overlay {
+        @include overlay;
+      }
+
+      // ** Controlls ** //
+
+      $control-radius: $radius !default;
+      $control-radius-small: $radius-small !default;
+
+      $control-border-width: 1px !default;
+
+      $control-height: 2.25em !default;
+      $control-line-height: 1.5 !default;
+
+      $control-padding-vertical: calc(
+        0.375em - #{$control-border-width}
+      ) !default;
+      $control-padding-horizontal: calc(
+        0.625em - #{$control-border-width}
+      ) !default;
+
+      @mixin control {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        align-items: center;
+        border: $control-border-width solid transparent;
+        border-radius: $control-radius;
+        box-shadow: none;
+        display: inline-flex;
+        font-size: $size-normal;
+        height: $control-height;
+        justify-content: flex-start;
+        line-height: $control-line-height;
+        padding-bottom: $control-padding-vertical;
+        padding-left: $control-padding-horizontal;
+        padding-right: $control-padding-horizontal;
+        padding-top: $control-padding-vertical;
+        position: relative;
+        vertical-align: top;
+        // States
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active {
+          outline: none;
+        }
+        &[disabled],
+        fieldset[disabled] & {
+          cursor: not-allowed;
+        }
+      }
+
+      // ** Minireset ** //
+      /*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
+      // Blocks
+      html,
+      body,
+      p,
+      ol,
+      ul,
+      li,
+      dl,
+      dt,
+      dd,
+      blockquote,
+      figure,
+      fieldset,
+      legend,
+      textarea,
+      pre,
+      iframe,
+      hr,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        padding: 0;
+      }
+      // Headings
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: 100%;
+        font-weight: normal;
+      }
+      // List
+      ul {
+        list-style: none;
+      }
+      // Form
+      button,
+      input,
+      select,
+      textarea {
+        margin: 0;
+      }
+      // Box sizing
+      html {
+        box-sizing: border-box;
+      }
+
+      * {
+        &,
+        &::before,
+        &::after {
+          box-sizing: inherit;
+        }
+      }
+      // Media
+      img,
+      embed,
+      iframe,
+      object,
+      video {
+        height: auto;
+        max-width: 100%;
+      }
+      audio {
+        max-width: 100%;
+      }
+      // Iframe
+      iframe {
+        border: 0;
+      }
+      // Table
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      td,
+      th {
+        padding: 0;
+        text-align: left;
+      }
+
+      // ** Generic ** //
+      $body-background-color: $white !default;
+      $body-size: 16px !default;
+      $body-rendering: optimizeLegibility !default;
+      $body-family: $family-primary !default;
+      $body-color: $text !default;
+      $body-weight: $weight-normal !default;
+      $body-line-height: 1.5 !default;
+
+      $code-family: $family-code !default;
+      $code-padding: 0.25em 0.5em 0.25em !default;
+      $code-weight: normal !default;
+      $code-size: 0.875em !default;
+
+      $hr-background-color: $background !default;
+      $hr-height: 2px !default;
+      $hr-margin: 1.5rem 0 !default;
+
+      $strong-color: $text-strong !default;
+      $strong-weight: $weight-bold !default;
+
+      html {
+        background-color: $body-background-color;
+        font-size: $body-size;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        min-width: 300px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        text-rendering: $body-rendering;
+        text-size-adjust: 100%;
+      }
+
+      article,
+      aside,
+      figure,
+      footer,
+      header,
+      hgroup,
+      section {
+        display: block;
+      }
+
+      body,
+      button,
+      input,
+      select,
+      textarea {
+        font-family: $body-family;
+      }
+
+      code,
+      pre {
+        -moz-osx-font-smoothing: auto;
+        -webkit-font-smoothing: auto;
+        font-family: $code-family;
+      }
+
+      body {
+        color: $body-color;
+        font-size: 1rem;
+        font-weight: $body-weight;
+        line-height: $body-line-height;
+      }
+
+      // Inline
+
+      a {
+        color: $link;
+        cursor: pointer;
+        text-decoration: none;
+        strong {
+          color: currentColor;
+        }
+        &:hover {
+          color: $link-hover;
+        }
+      }
+
+      code {
+        background-color: $code-background;
+        color: $code;
+        font-size: $code-size;
+        font-weight: $code-weight;
+        padding: $code-padding;
+      }
+
+      hr {
+        background-color: $hr-background-color;
+        border: none;
+        display: block;
+        height: $hr-height;
+        margin: $hr-margin;
+      }
+
+      img {
+        height: auto;
+        max-width: 100%;
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        vertical-align: baseline;
+      }
+
+      small {
+        font-size: 0.875em;
+      }
+
+      span {
+        font-style: inherit;
+        font-weight: inherit;
+      }
+
+      strong {
+        color: $strong-color;
+        font-weight: $strong-weight;
+      }
+
+      // Block
+
+      fieldset {
+        border: none;
+      }
+
+      pre {
+        + overflow-touch {
+          background-color: $pre-background;
+          color: $pre;
+          font-size: 0.875em;
+          overflow-x: auto;
+          padding: 1.25rem 1.5rem;
+          white-space: pre;
+          word-wrap: normal;
+        }
+        code {
+          background-color: transparent;
+          color: currentColor;
+          font-size: 1em;
+          padding: 0;
+        }
+      }
+
+      table td,
+      th {
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: $text-strong;
+      }
+
+      // ** Helpers ** //
+      // Float
+
+      .is-clearfix {
+        @include clearfix;
+      }
+
+      .is-pulled-left {
+        float: left !important;
+      }
+
+      .is-pulled-right {
+        float: right !important;
+      }
+
+      // Overflow
+
+      .is-clipped {
+        overflow: hidden !important;
+      }
+
+      // Overlay
+
+      .is-overlay {
+        @extend %overlay;
+      }
+
+      @mixin control {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        align-items: center;
+        border: $control-border-width solid transparent;
+        border-radius: $control-radius;
+        box-shadow: none;
+        display: inline-flex;
+        font-size: $size-normal;
+        height: $control-height;
+        justify-content: flex-start;
+        line-height: $control-line-height;
+        padding-bottom: $control-padding-vertical;
+        padding-left: $control-padding-horizontal;
+        padding-right: $control-padding-horizontal;
+        padding-top: $control-padding-vertical;
+        position: relative;
+        vertical-align: top;
+        // States
+        &:focus,
+        &.is-focused,
+        &:active,
+        &.is-active {
+          outline: none;
+        }
+        &[disabled],
+        fieldset[disabled] & {
+          cursor: not-allowed;
+        }
+      }
+
+      @mixin control {
+        @include control;
+      }
+
+      // The controls sizes use mixins so they can be used at different breakpoints
+      @mixin control-small {
+        border-radius: $control-radius-small;
+        font-size: $size-small;
+      }
+      @mixin control-medium {
+        font-size: $size-medium;
+      }
+      @mixin control-large {
+        font-size: $size-large;
+      }
     `}
   </style>
 );
